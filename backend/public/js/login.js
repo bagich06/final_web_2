@@ -10,16 +10,18 @@ document.getElementById("loginForm").onsubmit = async function (e) {
   const data = await res.json();
   if (res.ok) {
     localStorage.setItem("token", data.token);
-    // Получаем защищённую страницу с токеном
-    fetch("/catalog.html", {
+    // Проверяем роль пользователя
+    const profileRes = await fetch("/api/users/profile", {
       headers: { Authorization: "Bearer " + data.token },
-    })
-      .then((r) => r.text())
-      .then((html) => {
-        document.open();
-        document.write(html);
-        document.close();
-      });
+    });
+    if (profileRes.ok) {
+      const user = await profileRes.json();
+      if (user.role === "admin") {
+        window.location.href = "/admin.html";
+        return;
+      }
+    }
+    window.location.href = "/catalog.html";
   } else {
     document.getElementById("loginError").innerText =
       data.message || (data.errors && data.errors[0].msg) || "Ошибка входа";

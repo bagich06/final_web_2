@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Админка — Все заказы</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      .admin-main {
+        max-width: 1200px;
+        margin: 48px auto;
+      }
+      .admin-title {
+        font-size: 2.2rem;
+        font-weight: 900;
+        margin-bottom: 32px;
+      }
+      .admin-orders-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+      }
+      .admin-orders-table th,
+      .admin-orders-table td {
+        padding: 14px 10px;
+        border-bottom: 1px solid #eee;
+        text-align: left;
+      }
+      .admin-orders-table th {
+        background: #fafbfc;
+        font-weight: 900;
+      }
+      .admin-order-row:hover {
+        background: #f5f5f5;
+        cursor: pointer;
+      }
+      .admin-status {
+        font-weight: 700;
+        border-radius: 6px;
+        padding: 4px 12px;
+      }
+      .admin-status.pending {
+        background: #fffbe6;
+        color: #bfa700;
+      }
+      .admin-status.shipped {
+        background: #e6f7ff;
+        color: #0077b6;
+      }
+      .admin-status.delivered {
+        background: #e6fbe6;
+        color: #2e8b57;
+      }
+      .admin-order-details {
+        background: #fafbfc;
+        border-radius: 8px;
+        margin: 24px 0;
+        padding: 24px;
+      }
+      .admin-order-details-title {
+        font-size: 1.2rem;
+        font-weight: 900;
+        margin-bottom: 12px;
+      }
+      .admin-order-products {
+        margin-bottom: 12px;
+      }
+      .admin-order-products li {
+        margin-bottom: 4px;
+      }
+      .admin-status-btn {
+        margin-right: 8px;
+        padding: 6px 16px;
+        border: none;
+        border-radius: 4px;
+        font-weight: 700;
+        cursor: pointer;
+        background: #eee;
+        color: #222;
+        transition: background 0.2s;
+      }
+      .admin-status-btn:hover {
+        background: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <span class="logo">BAGICH12. — ADMIN</span>
+      <div class="nav">
+        <a href="/admin.html" style="font-weight: 900">ВСЕ ЗАКАЗЫ</a>
+        <a href="/adminProfile.html">ПРОФИЛЬ</a>
+      </div>
+    </div>
+    <div class="admin-main">
+      <div class="admin-title">Все заказы</div>
+      <table class="admin-orders-table" id="ordersTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Пользователь</th>
+            <th>Email</th>
+            <th>Дата</th>
+            <th>Статус</th>
+            <th>Сумма</th>
+          </tr>
+        </thead>
+        <tbody id="ordersBody"></tbody>
+      </table>
+      <div id="orderDetails"></div>
+    </div>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>
