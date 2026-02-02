@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bagich12. — Минимализм в деталях</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      body {
+        background: #0a0a0a;
+        color: #fff;
+        margin: 0;
+        font-family: "Montserrat", Arial, sans-serif;
+        min-height: 100vh;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 48px 16px 48px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        border-bottom: 1px solid #eee;
+      }
+      .header .logo {
+        letter-spacing: 1px;
+        font-size: 1.4rem;
+      }
+      .header .nav {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+      }
+      .header .nav a,
+      .header .nav i {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        margin-left: 12px;
+        transition: color 0.2s;
+      }
+      .header .nav a:hover {
+        color: #aaa;
+      }
+      .main {
+        max-width: 700px;
+        margin: 100px 0 0 80px;
+      }
+      .subtitle {
+        letter-spacing: 0.2em;
+        color: #aaa;
+        font-size: 1rem;
+        margin-bottom: 18px;
+      }
+      .title {
+        font-size: 4rem;
+        font-weight: 900;
+        line-height: 1.05;
+        margin: 0 0 12px 0;
+        letter-spacing: -2px;
+      }
+      .title .accent {
+        color: #bfc2c7;
+        font-size: 4.1rem;
+        font-weight: 900;
+        letter-spacing: -2px;
+        display: block;
+      }
+      .desc {
+        color: #bfc2c7;
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+        max-width: 500px;
+      }
+      .actions {
+        display: flex;
+        gap: 24px;
+      }
+      .btn-main {
+        background: #fff;
+        color: #111;
+        border: none;
+        padding: 16px 32px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        border-radius: 4px;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .btn-main:hover {
+        background: #e5e5e5;
+      }
+      .btn-link {
+        background: none;
+        color: #fff;
+        border: none;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        border-bottom: 1px solid #fff;
+        padding: 16px 0 8px 0;
+        margin-left: 8px;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .btn-link:hover {
+        color: #bfc2c7;
+        border-color: #bfc2c7;
+        background: none;
+      }
+      @media (max-width: 800px) {
+        .main {
+          margin: 60px 16px 0 16px;
+        }
+        .header {
+          padding: 24px 16px 0 16px;
+        }
+        .title,
+        .title .accent {
+          font-size: 2.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <span class="logo">BAGICH12.</span>
+      <div class="nav">
+        <a href="/catalog.html" style="font-weight: 900">КАТАЛОГ</a>
+        <a href="/cart.html" style="font-weight: 900">КОРЗИНА</a>
+        <a href="/profile.html" style="font-weight: 900">ПРОФИЛЬ</a>
+      </div>
+    </div>
+    <div class="main">
+      <div class="subtitle">НОВАЯ КОЛЛЕКЦИЯ 2026</div>
+      <div class="title">
+        МИНИМАЛИЗМ<br /><span class="accent">В ДЕТАЛЯХ.</span>
+      </div>
+      <div class="desc">
+        Создаем одежду, которая говорит сама за себя. Чистые линии, премиальные
+        материалы и бескомпромиссный черный цвет.
+      </div>
+      <div class="actions">
+        <button
+          class="btn-main"
+          onclick="window.location.href = '/catalog.html'"
+        >
+          СМОТРЕТЬ КАТАЛОГ
+        </button>
+        <button
+          class="btn-link"
+          onclick="window.location.href = '/register.html'"
+        >
+          РЕГИСТРАЦИЯ &rarr;
+        </button>
+      </div>
+    </div>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </body>
+</html>

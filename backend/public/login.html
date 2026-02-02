@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вход — BAGICH12.</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      body {
+        background: #fff;
+        color: #111;
+        margin: 0;
+        font-family: "Montserrat", Arial, sans-serif;
+        min-height: 100vh;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 48px 16px 48px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        border-bottom: 1px solid #eee;
+      }
+      .header .logo {
+        letter-spacing: 1px;
+        font-size: 1.4rem;
+      }
+      .header .nav {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+      }
+      .header .nav a,
+      .header .nav i {
+        color: #111;
+        text-decoration: none;
+        font-size: 1rem;
+        margin-left: 12px;
+        transition: color 0.2s;
+      }
+      .header .nav a:hover {
+        color: #888;
+      }
+      .login-container {
+        max-width: 420px;
+        margin: 60px auto 0 auto;
+        background: #fff;
+        border-radius: 8px;
+        padding: 48px 32px 32px 32px;
+        box-shadow: none;
+        text-align: center;
+      }
+      .login-title {
+        font-size: 2.2rem;
+        font-weight: 900;
+        margin-bottom: 8px;
+        letter-spacing: -1px;
+      }
+      .login-sub {
+        color: #6c6e72;
+        font-size: 1.05rem;
+        margin-bottom: 32px;
+      }
+      .login-label {
+        display: block;
+        text-align: left;
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 6px;
+        margin-top: 18px;
+        letter-spacing: 0.05em;
+      }
+      .login-input {
+        width: 100%;
+        padding: 14px 12px;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        font-size: 1rem;
+        margin-bottom: 2px;
+        background: #fafbfc;
+        color: #111;
+        outline: none;
+        transition: border 0.2s;
+      }
+      .login-input:focus {
+        border: 1.5px solid #111;
+      }
+      .login-btn {
+        width: 100%;
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 16px 0;
+        font-size: 1.1rem;
+        font-weight: 700;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 24px;
+        margin-bottom: 12px;
+        transition: background 0.2s;
+      }
+      .login-btn:hover {
+        background: #222;
+      }
+      .login-link {
+        color: #111;
+        font-weight: 700;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      .login-link:hover {
+        color: #888;
+      }
+      .error {
+        color: #d00;
+        margin-bottom: 10px;
+        font-size: 1rem;
+      }
+      @media (max-width: 600px) {
+        .header {
+          padding: 18px 8px 0 8px;
+        }
+        .login-container {
+          padding: 32px 8px 24px 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <span class="logo">BAGICH12.</span>
+      <div class="nav">
+        <a href="/catalog.html" style="font-weight: 900">КАТАЛОГ</a>
+        <a href="/cart.html" style="font-weight: 900">КОРЗИНА</a>
+        <a href="/profile.html" style="font-weight: 900">ПРОФИЛЬ</a>
+      </div>
+    </div>
+    <div class="login-container">
+      <div class="login-title">ВХОД</div>
+      <div class="login-sub">С возвращением</div>
+      <form id="loginForm">
+        <label class="login-label" for="email">EMAIL</label>
+        <input
+          type="email"
+          id="email"
+          class="login-input"
+          placeholder="name@example.com"
+          required
+        />
+        <label class="login-label" for="password">ПАРОЛЬ</label>
+        <input
+          type="password"
+          id="password"
+          class="login-input"
+          placeholder="********"
+          required
+          minlength="6"
+        />
+        <button type="submit" class="login-btn">ВОЙТИ</button>
+      </form>
+      <div id="loginError" class="error"></div>
+      <div style="margin-top: 18px; color: #6c6e72; font-size: 1rem">
+        Нет аккаунта?
+        <a href="/register.html" class="login-link">Зарегистрироваться</a>
+      </div>
+    </div>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="/js/login.js"></script>
+  </body>
+</html>

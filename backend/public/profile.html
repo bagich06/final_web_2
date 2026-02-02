@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Профиль — BAGICH12.</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      body {
+        background: #fff;
+        color: #111;
+        margin: 0;
+        font-family: "Montserrat", Arial, sans-serif;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 48px 16px 48px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        border-bottom: 1px solid #eee;
+      }
+      .header .logo {
+        letter-spacing: 1px;
+        font-size: 1.4rem;
+      }
+      .header .nav {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+      }
+      .header .nav a,
+      .header .nav i {
+        color: #111;
+        text-decoration: none;
+        font-size: 1rem;
+        margin-left: 12px;
+        transition: color 0.2s;
+      }
+      .header .nav a:hover {
+        color: #888;
+      }
+      .profile-main {
+        display: flex;
+        gap: 48px;
+        max-width: 1200px;
+        margin: 48px auto 0 auto;
+        align-items: flex-start;
+      }
+      .profile-sidebar {
+        flex: 1;
+        min-width: 220px;
+        max-width: 260px;
+      }
+      .profile-avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: #111;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.2rem;
+        font-weight: 900;
+        margin-bottom: 12px;
+      }
+      .profile-user {
+        font-size: 1.1rem;
+        font-weight: 900;
+        margin-bottom: 2px;
+      }
+      .profile-email {
+        color: #6c6e72;
+        font-size: 1rem;
+        margin-bottom: 18px;
+      }
+      .profile-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 24px 0;
+      }
+      .profile-menu li {
+        margin-bottom: 8px;
+      }
+      .profile-menu-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #111;
+        text-decoration: none;
+        font-weight: 700;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .profile-menu-link.active,
+      .profile-menu-link:hover {
+        background: #fafbfc;
+        color: #111;
+      }
+      .profile-logout {
+        color: #d00;
+        font-weight: 700;
+        text-decoration: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 18px;
+      }
+      .profile-logout:hover {
+        text-decoration: underline;
+      }
+      .profile-content {
+        flex: 3;
+      }
+      .profile-title {
+        font-size: 2rem;
+        font-weight: 900;
+        margin-bottom: 32px;
+        letter-spacing: -1px;
+      }
+      .orders-list {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .order-card {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        padding: 28px 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .order-id {
+        font-size: 1.1rem;
+        font-weight: 900;
+        margin-bottom: 4px;
+      }
+      .order-date {
+        color: #6c6e72;
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+      .order-count {
+        color: #6c6e72;
+        font-size: 1rem;
+      }
+      .order-status {
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 4px 16px;
+        border-radius: 6px;
+        margin-left: 12px;
+      }
+      .order-status.in-progress {
+        background: #f5f5f5;
+        color: #6c6e72;
+      }
+      .order-status.delivered {
+        background: #e6fbe6;
+        color: #2e8b57;
+      }
+      .order-sum {
+        font-size: 1.3rem;
+        font-weight: 900;
+      }
+      @media (max-width: 900px) {
+        .profile-main {
+          flex-direction: column;
+          gap: 0;
+        }
+        .header {
+          padding: 18px 8px 0 8px;
+        }
+        .order-card {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <span class="logo">BAGICH12.</span>
+      <div class="nav">
+        <a href="/catalog.html" style="font-weight: 900">КАТАЛОГ</a>
+        <a href="/cart.html" style="font-weight: 900">КОРЗИНА</a>
+        <a href="/profile.html" style="font-weight: 900">ПРОФИЛЬ</a>
+      </div>
+    </div>
+    <div class="profile-main">
+      <div class="profile-sidebar">
+        <div class="profile-avatar" id="profileAvatar">П</div>
+        <div class="profile-user" id="profileName">Пользователь</div>
+        <div class="profile-email" id="profileEmail">email</div>
+        <ul class="profile-menu"></ul>
+        <div class="profile-logout" id="logoutBtn">
+          <i class="fa fa-sign-out-alt"></i> Выйти
+        </div>
+      </div>
+      <div class="profile-content">
+        <div class="profile-title">ИСТОРИЯ ЗАКАЗОВ</div>
+        <div class="orders-list" id="orderHistory"></div>
+      </div>
+    </div>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="/js/protected-nav.js"></script>
+    <script src="/js/profile.js"></script>
+  </body>
+</html>
