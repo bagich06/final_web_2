@@ -25,6 +25,12 @@ async function loadProfile() {
     let orders = await ordersRes.json();
     if (!Array.isArray(orders)) orders = [];
     let html = "";
+    function statusLabel(status) {
+      if (status === "pending") return "Ожидает";
+      if (status === "shipped") return "В пути";
+      if (status === "delivered") return "ДОСТАВЛЕН";
+      return status;
+    }
     orders.forEach((order) => {
       // Подсчет количества товаров и суммы
       const count = order.products
@@ -55,8 +61,8 @@ async function loadProfile() {
       html += `<div class="order-card">
         <div class="order-info">
           <div class="order-id">ORD-${order._id.toString().slice(-4)}
-            <span class="order-status ${order.status === "delivered" ? "delivered" : "in-progress"}">
-              ${order.status === "delivered" ? "ДОСТАВЛЕН" : "В ПУТИ"}
+            <span class="order-status ${order.status}">
+              ${statusLabel(order.status)}
             </span>
           </div>
           <div class="order-date">от ${order.createdAt ? new Date(order.createdAt).toLocaleDateString("ru-RU") : ""}</div>
