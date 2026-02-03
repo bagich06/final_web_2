@@ -22,7 +22,6 @@ function goToProtectedPage(path) {
     });
 }
 
-// Для ссылок с классом .protected-link
 function setupProtectedLinks() {
   document.querySelectorAll(".protected-link").forEach((link) => {
     link.addEventListener("click", function (e) {

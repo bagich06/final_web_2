@@ -207,6 +207,82 @@
         </div>
       </div>
       <div class="profile-content">
+        <div class="profile-title">ПРОФИЛЬ</div>
+        <form id="profileEditForm" class="profile-edit-form">
+          <div class="form-group">
+            <label for="editUsername">Имя пользователя</label>
+            <input type="text" id="editUsername" name="username" required />
+          </div>
+          <div class="form-group">
+            <label for="editEmail">Email</label>
+            <input type="email" id="editEmail" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="editPassword">Новый пароль (необязательно)</label>
+            <input type="password" id="editPassword" name="password" />
+          </div>
+          <button type="submit" class="profile-save-btn">Сохранить</button>
+          <span id="profileEditMsg" class="profile-edit-msg"></span>
+        </form>
+        <style>
+          .profile-edit-form {
+            width: 100%;
+            max-width: none;
+            margin-bottom: 32px;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 28px 32px;
+            box-shadow: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+          }
+          @media (max-width: 900px) {
+            .profile-edit-form {
+              padding: 18px 8px;
+            }
+          }
+          .profile-edit-form .form-group {
+            margin-bottom: 18px;
+          }
+          .profile-edit-form label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #111;
+          }
+          .profile-edit-form input[type="text"],
+          .profile-edit-form input[type="email"],
+          .profile-edit-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            background: #fff;
+            margin-bottom: 2px;
+            box-sizing: border-box;
+          }
+          .profile-save-btn {
+            padding: 10px 24px;
+            font-weight: 700;
+            background: #111;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+          }
+          .profile-save-btn:hover {
+            background: #333;
+          }
+          .profile-edit-msg {
+            margin-left: 16px;
+            font-weight: 700;
+            font-size: 1rem;
+          }
+        </style>
         <div class="profile-title">ИСТОРИЯ ЗАКАЗОВ</div>
         <div class="orders-list" id="orderHistory"></div>
       </div>
