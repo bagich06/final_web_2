@@ -6,7 +6,9 @@ exports.updateOrder = async (req, res, next) => {
     const order = await Order.findOne({ _id: id, user: userId });
     if (!order) return res.status(404).json({ message: "Order not found" });
     if (order.status !== "pending") {
-      return res.status(400).json({ message: "Можно изменить только заказ в статусе pending" });
+      return res
+        .status(400)
+        .json({ message: "Можно изменить только заказ в статусе pending" });
     }
     if (products && Array.isArray(products)) {
       order.products = products;
@@ -25,7 +27,9 @@ exports.deleteOrder = async (req, res, next) => {
     const order = await Order.findOne({ _id: id, user: userId });
     if (!order) return res.status(404).json({ message: "Order not found" });
     if (order.status !== "pending") {
-      return res.status(400).json({ message: "Можно удалить только заказ в статусе pending" });
+      return res
+        .status(400)
+        .json({ message: "Можно удалить только заказ в статусе pending" });
     }
     await order.deleteOne();
     res.json({ message: "Order deleted" });

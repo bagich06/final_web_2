@@ -122,43 +122,46 @@ async function loadProfile() {
         formHtml += `<button type='submit' style='padding:6px 18px;background:#007bff;color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:700;'>Сохранить</button> <button type='button' id='orderEditCancel' style='padding:6px 18px;background:#888;color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:700;margin-left:8px;'>Отмена</button>`;
         formHtml += `</form>`;
         // Вставить форму после order-card
-        const card = btn.closest('.order-card');
+        const card = btn.closest(".order-card");
         if (!card) return;
         // Удалить старую форму если есть
-        const oldForm = card.querySelector('#orderEditForm');
+        const oldForm = card.querySelector("#orderEditForm");
         if (oldForm) oldForm.remove();
-        card.insertAdjacentHTML('beforeend', formHtml);
+        card.insertAdjacentHTML("beforeend", formHtml);
         // Обработчик отмены
-        card.querySelector('#orderEditCancel').onclick = function() {
-          card.querySelector('#orderEditForm').remove();
+        card.querySelector("#orderEditCancel").onclick = function () {
+          card.querySelector("#orderEditForm").remove();
         };
         // Обработчик сохранения
-        card.querySelector('#orderEditForm').onsubmit = async function(e) {
+        card.querySelector("#orderEditForm").onsubmit = async function (e) {
           e.preventDefault();
           const newProducts = order.products.map((item, idx) => {
             const input = card.querySelector(`input[data-idx='${idx}']`);
             return {
-              product: item.product && item.product._id ? item.product._id : item.product,
-              quantity: parseInt(input.value) || 1
+              product:
+                item.product && item.product._id
+                  ? item.product._id
+                  : item.product,
+              quantity: parseInt(input.value) || 1,
             };
           });
           try {
             const res = await fetch(`/api/users/orders/${orderId}`, {
-              method: 'PUT',
+              method: "PUT",
               headers: {
-                'Content-Type': 'application/json',
-                Authorization: 'Bearer ' + token
+                "Content-Type": "application/json",
+                Authorization: "Bearer " + token,
               },
-              body: JSON.stringify({ products: newProducts })
+              body: JSON.stringify({ products: newProducts }),
             });
             if (!res.ok) {
               const data = await res.json();
-              alert(data.message || 'Ошибка изменения заказа');
+              alert(data.message || "Ошибка изменения заказа");
             } else {
               loadProfile();
             }
           } catch (e) {
-            alert('Ошибка сети');
+            alert("Ошибка сети");
           }
         };
       };
